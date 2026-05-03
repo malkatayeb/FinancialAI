@@ -41,12 +41,12 @@ public class FinancialReportingService {
         LocalDate start = month.atDay(1);
         LocalDate end = month.atEndOfMonth();
 
-        BigDecimal totalBalance = transactionRepository.sumAllAmounts();
+        BigDecimal balance = transactionRepository.sumAllAmounts();
         BigDecimal monthlyExpenses = transactionRepository.sumMonthlyExpenses(start, end);
         double health = computeBudgetHealth(start, end);
 
         return DashboardSummaryResponse.builder()
-                .totalBalance(toDouble(totalBalance))
+                .balance(toDouble(balance))
                 .monthlyExpenses(toDouble(monthlyExpenses))
                 .budgetHealth(health)
                 .build();
