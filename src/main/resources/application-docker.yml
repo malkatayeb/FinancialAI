@@ -1,0 +1,7 @@
+langchain4j:
+  ollama:
+    chat-model:
+      base-url: http://ollama:11434
+      model-name: llama3.2
+      temperature: 0.2
+      timeout: PT300S
